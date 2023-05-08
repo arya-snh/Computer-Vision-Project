@@ -3,7 +3,7 @@ import cv2
 
 cap = cv2.VideoCapture(0)
 
-img1 = cv2.imread('Image1.jpg')
+img1 = cv2.imread('image.png')
 myVid = cv2.VideoCapture('cv_video_1.mp4')
  
 detection = False
