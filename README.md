@@ -1,1 +1,1 @@
-Project Topic: AR/VR object insertion on a plan in videos using planar homographies
+Project Topic: AR/VR object insertion on a plane in videos using planar homographies

@@ -28,8 +28,8 @@ kp1,des1 = orb.detectAndCompute(img1,None)
 img1 = cv2.drawKeypoints(img1,kp1,None)
 # cv2.imshow('Image 1',img1)
 # cv2.waitKey(0)
-
-while True:
+total_count = myVid.get(cv2.CAP_PROP_FRAME_COUNT)
+while frameCounter <= total_count:
 
   img_tgt = cv2.imread('TargetImage.jpg')
 
@@ -47,9 +47,9 @@ while True:
     myVid.set(cv2.CAP_PROP_POS_FRAMES, 0)
     frameCounter = 0
   else:
-      if frameCounter == myVid.get(cv2.CAP_PROP_FRAME_COUNT):
-        myVid.set(cv2.CAP_PROP_POS_FRAMES, 0)
-        frameCounter = 0
+      # if frameCounter == myVid.get(cv2.CAP_PROP_FRAME_COUNT):
+      #   myVid.set(cv2.CAP_PROP_POS_FRAMES, 0)
+      #   frameCounter = 0
       success, imgVideo = myVid.read()
       imgVideo = cv2.resize(imgVideo,(wt,ht))
 
@@ -81,7 +81,7 @@ while True:
     maskInv = cv2.bitwise_not(maskNew)
     img_aug = cv2.bitwise_and(img_aug, img_aug, mask = maskInv)
     img_aug = cv2.bitwise_or(imgWarp, img_aug )
-    
+
   cv2.imshow('img_aug',img_aug)
   # cv2.imshow('imgWarp',imgWarp)
   # cv2.imshow('img2',img2)
@@ -91,4 +91,4 @@ while True:
   # cv2.imshow('Image tgt',img_tgt)
   cv2.waitKey(1)
   frameCounter+=1
-  break
+  # break
