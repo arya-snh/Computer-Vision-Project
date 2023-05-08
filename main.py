@@ -80,8 +80,8 @@ while True:
     cv2.fillPoly(maskNew,  [np.int32(dst)], (255,255,255))
     maskInv = cv2.bitwise_not(maskNew)
     img_aug = cv2.bitwise_and(img_aug, img_aug, mask = maskInv)
-
     img_aug = cv2.bitwise_or(imgWarp, img_aug )
+    
   cv2.imshow('img_aug',img_aug)
   # cv2.imshow('imgWarp',imgWarp)
   # cv2.imshow('img2',img2)
